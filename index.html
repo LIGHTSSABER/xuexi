@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>安康学习平台</title>
+  <meta charset="utf-8">
+  <style>
+
+    .header {
+      background-color: #f1f1f1;
+      padding: 5px;
+      text-align: left;
+    }
+
+    ul{
+      list-style-type:none;
+      margin:0;
+      padding:0;
+      overflow:hidden;
+      background-color:#333;
+    }
+
+    li{
+      float:left;
+    }
+
+    li a, .dropbtn
+    {
+      display:inline-block;
+      color:white;
+      text-align:center;
+      padding:14px 16px;
+      text-decoration:none;
+    }
+
+    li a:hover, .dropdown:hover, .dropbtn
+    {
+      background-color:#111;
+    }
+
+    .dropdown
+    {
+      display:inline-block;
+    }
+
+    .dropdown-content
+    {
+      display:none;
+      position:absolute;
+      background-color:#f9f9f9;
+      min-width:160px;
+      box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+
+    .dropdown-content a
+    {
+      color:black;
+      padding:12px 16px;
+      text-decoration:none;
+      display:block;
+    }
+
+    .dropdown-content a:hover {background-color: #f1f1f1}
+
+    .dropdown:hover .dropdown-content
+    {
+      display:block;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* 创建三个不相等的列 */
+    .column {
+      float: left;
+      padding: 10px;
+    }
+
+    /* 左右两侧宽度 */
+    .column.side {
+      width: 10%;
+    }
+
+    /* 中间区域宽度 */
+    .column.middle {
+      width: 80%;
+    }
+
+    /* 列后面清除浮动 */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    /* 响应式布局 - 宽度小于600px时设置上下布局 */
+    @media screen and (max-width: 600px) {
+      .column.side, .column.middle {
+        width: 100%;
+      }
+    }
+
+  </style>
+
+  <style>
+    *{
+      padding:0;
+      margin:0;
+    }
+    .mylunbo{
+      margin:20px auto;
+      position: relative;
+      width: 1000px;
+      height: 700px;
+      /*background-color: purple;*/
+      overflow: hidden;
+    }
+    img{
+      width:1000px;
+      height:800px;
+    }
+    .mylunbo ul{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width:500%;
+    }
+    ul li{
+      float:left;
+      list-style-type: none;
+    }
+    ol li{
+      list-style-type: none;
+    }
+    .arrow-l,
+    .arrow-r {
+      display: none;
+      position: absolute;
+      top: 50%;
+      margin-top: -20px;/*高度40，上移20*/
+      width: 24px;
+      height: 40px;
+      background: rgba(0, 0, 0, .3);
+      text-align: center;
+      line-height: 40px;
+      color: #fff;
+      font-family: 'icomoon';
+      font-size: 18px;
+      z-index: 2;
+    }
+    .arrow-r {
+      right: 0;
+    }
+    .circle {
+      position: absolute;
+      bottom: 10px;
+      left: 350px;
+    }
+    .circle li {
+      float: left;
+      width: 8px;
+      height: 8px;
+      /*background-color: #fff;*/
+      border: 2px solid rgba(240, 120, 120, 0.5);
+      margin: 0 3px;
+      border-radius: 50%;
+      /*鼠标经过显示小手*/
+      cursor: pointer;
+    }
+    .current {
+      background-color: #fff;
+    }
+    a:hover{
+      color:red;
+    }
+
+  </style>
+
+</head>
+<body>
+
+<div class="header">
+  <h1>安康学习平台</h1>
+</div>
+
+<ul>
+  <li><a class="active" href="">首页</a></li>
+  <div class="dropdown">
+    <a href="#" class="dropbtn">语文</a>
+    <div class="dropdown-content">
+      <a href="./doc.html?title=一年级&video=movie.mp4,movie.mp4,movie.mp4,movie.mp4,movie.mp4,movie.mp4,movie.mp4">一年级</a>
+      <a href="./doc.html?title=二年级&video=movie.mp4">二年级</a>
+      <a href="./doc.html?title=三年级&video=movie.mp4">三年级</a>
+      <a href="./doc.html?title=四年级&video=movie.mp4">四年级</a>
+      <a href="./doc.html?title=五年级&video=movie.mp4">五年级</a>
+      <a href="./doc.html?title=六年级&video=movie.mp4">六年级</a>
+      <a href="./doc.html?title=七年级&video=movie.mp4">七年级</a>
+      <a href="./doc.html?title=八年级&video=movie.mp4">八年级</a>
+      <a href="./doc.html?title=九年级&video=movie.mp4">九年级</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#" class="dropbtn">数学</a>
+    <div class="dropdown-content">
+      <a href="./doc.html?title=一年级">一年级</a>
+      <a href="./doc.html?title=二年级&video=movie.mp4">二年级</a>
+      <a href="./doc.html?title=三年级&video=movie.mp4">三年级</a>
+      <a href="./doc.html?title=四年级&video=movie.mp4">四年级</a>
+      <a href="./doc.html?title=五年级&video=movie.mp4">五年级</a>
+      <a href="./doc.html?title=六年级&video=movie.mp4">六年级</a>
+      <a href="./doc.html?title=七年级&video=movie.mp4">七年级</a>
+      <a href="./doc.html?title=八年级&video=movie.mp4">八年级</a>
+      <a href="./doc.html?title=九年级&video=movie.mp4,xiangsi.mp4,fbl1.mp4">九年级</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#" class="dropbtn">英语</a>
+    <div class="dropdown-content">
+      <a href="./doc.html?title=三年级">三年级</a>
+      <a href="./doc.html?title=四年级">四年级</a>
+      <a href="./doc.html?title=五年级">五年级</a>
+      <a href="./doc.html?title=六年级">六年级</a>
+      <a href="./doc.html?title=七年级">七年级</a>
+      <a href="./doc.html?title=八年级">八年级</a>
+      <a href="./doc.html?title=九年级">九年级</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#" class="dropbtn">物理</a>
+    <div class="dropdown-content">
+      <a href="./doc.html?title=八年级">八年级</a>
+      <a href="./doc.html?title=九年级">九年级</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <a href="#" class="dropbtn">化学</a>
+    <div class="dropdown-content">
+      <a href="./doc.html?title=九年级">九年级</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <a href="#" class="dropbtn">奥数</a>
+    <div class="dropdown-content">
+      <a href="./doc.html?title=一年级">一年级</a>
+      <a href="./doc.html?title=二年级">二年级</a>
+      <a href="./doc.html?title=三年级">三年级</a>
+      <a href="./doc.html?title=四年级">四年级</a>
+      <a href="./doc.html?title=五年级">五年级</a>
+      <a href="./doc.html?title=六年级">六年级</a>
+      <a href="./doc.html?title=七年级">七年级</a>
+      <a href="./doc.html?title=八年级">八年级</a>
+      <a href="./doc.html?title=九年级">九年级</a>
+    </div>
+  </div>
+</ul>
+
+<div class="row">
+  <div class="column side">
+<!--    <h2>左侧栏</h2>-->
+    <p>安康学习平台</p>
+  </div>
+
+  <div class="column middle">
+<!--    <h2>主区域内容</h2>-->
+    <div class="mylunbo">
+      <a href="javascript:;" class="arrow-l"><</a>
+      <a href="javascript:;" class="arrow-r">></a>
+      <ul>
+        <li>
+          <a href="#"><img src="s2.png" width="1000" height="800" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="s1.png" width="1000" height="800" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="s2.png" width="1000" height="800" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="s1.png" width="1000" height="800" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="s1.png" width="1000" height="800" alt="" /></a>
+        </li>
+        <li>
+          <a href="#"><img src="s2.png" width="1000" height="800" alt="" /></a>
+        </li>
+      </ul>
+      <ol class="circle">
+
+      </ol>
+    </div>
+  </div>
+
+  <div class="column side">
+<!--    <h2>右侧栏</h2>-->
+    <p>请关注微信公众号</p>
+  </div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+  function $(id) {
+    return document.getElementById(id);
+  }
+  window.onload = function() {
+    var oLeft = $("left");
+    var oRight = $("right");
+    var index = 0;
+    var timer = null;
+    var pic = $("pic").getElementsByTagName("li");
+    var num = $("num").getElementsByTagName("li");
+    var oDiv = $("wrap");
+
+    oRight.onclick = function() {
+      index++;
+      if (index >= pic.length) {
+        index = 0;
+      }
+      change(index);
+    }
+    oLeft.onclick = function() {
+      index--;
+      if (index < 0) {
+        index = pic.length - 1;
+      }
+      change(index);
+    }
+    oDiv.onmouseover = function() {
+      clearInterval(timer);
+    }
+    oDiv.onmouseout = function() {
+      timer = setInterval(run, 2000); //鼠标移出后重新开始定时器
+    }
+
+    timer = setInterval(run, 4000); //定时器
+
+    function run() { //用于定时器的函数
+      index++;
+      if (index >= pic.length) {
+        index = 0;
+      }
+      change(index);
+    }
+
+    for (var i = 0; i < num.length; i++) {
+      num[i].index = i; //把索引值存起来
+      num[i].onmouseover = function() {
+        change(this.index);
+      }
+    }
+
+    function change(curindex) { //用于切换图片的函数
+      for (var i = 0; i < pic.length; i++) {
+        pic[i].style.display = "none";
+        num[i].className = "";
+      }
+      pic[curindex].style.display = "block";
+      num[curindex].className = "active";
+      index = curindex;
+    }
+  }
+</script>
+
+<script>
+  function animate(obj,length,callback){
+    clearInterval(obj.timer);
+    obj.timer=setInterval(function(){
+      var step=(length-obj.offsetLeft)/10; // 缓动效果，步长=（目标值-当前值）/10
+      step=step>0 ? Math.ceil(step) : Math.floor(step);
+      if(obj.offsetLeft==length){
+        clearInterval(obj.timer);
+        if(callback)
+          callback();
+        //callback && callback()
+      }
+      obj.style.left=obj.offsetLeft+step+'px';
+    },15);
+  }
+
+  window.addEventListener('load',function(){
+    const lunbo=document.querySelector(".mylunbo");
+    const arrowl=document.querySelector(".arrow-l");
+    const arrowr=document.querySelector(".arrow-r");
+    var num=0;  // 左右移动按钮定位图片
+    var circle=0;  // 定位小圆点
+    var flag=true;  // 节流阀
+//1、右侧按钮，左侧按钮
+    lunbo.addEventListener('mouseenter',function(){
+      arrowl.style.display='block';
+      arrowr.style.display='block';
+      clearInterval(timer);  // 清楚计时器，轮播图不自动播放
+//timer=null;  // 清楚timer变量
+    });
+    lunbo.addEventListener('mouseleave',function(){
+      arrowl.style.display='none';
+      arrowr.style.display='none';
+      timer=setInterval(function(){
+        arrowr.click();
+      },2000);
+    });
+//2、创建小圆点
+    const ul=lunbo.querySelector("ul");
+    const ol=lunbo.querySelector("ol");
+    for(let i=0;i<ul.children.length;i++){  // 根据图片数量生成小圆点
+      let li=document.createElement("li");
+      li.setAttribute('index',i);  // 添加自定义属性index
+      ol.appendChild(li);
+//3、添加小圆圈点击事件
+      li.onclick=function(){
+        for(let i=0;i<ol.children.length;i++){
+          ol.children[i].className='';
+        }
+        this.className='current';
+//4、小圆圈动画
+        let lunbowidth=lunbo.offsetWidth;
+        let index=this.getAttribute('index');
+        num=circle=index;  // 点击小圆点时，将num和circle的值赋值为index，即将小圆点顺序和左右按钮的num定位到当前图片
+        animate(ul,-index*lunbowidth);  // 调用动画函数，-index*lunboWidth为终点位置
+      }
+    }
+//5、克隆子元素-->ABCDA，此时最后一张图为第一张图的复制！！
+    let child=ul.children[0].cloneNode(true);
+    ul.appendChild(child);
+    ol.children[0].className='current';
+//6、右侧按钮点击事件
+    arrowr.addEventListener('click',function(){
+      if(flag){
+        flag=false;  // 未完成轮播动画，不能轮播，设置为false
+        if(num==ul.children.length-1){
+          ul.style.left=0;  // 当点击到最后一个图片时，即和第一幅图相同的那张，num为ul.children.length-1,先切换到第一张(很快),执行动画切换到第二张
+          num=0;  // num重新设为0，后面再加1
+        }
+        num++;
+        animate(ul,-num*lunbo.offsetWidth,function(){
+          flag=true;  // 将flag设置为true，可以再次点击轮播
+        });
+        circle++;
+        if(circle==ol.children.length)  // 当小圆圈移动到最后，点击右移，circle+1,此时circle为ol.children.length
+          circle=0;
+        setCurrent();
+      }
+    })
+//7、左侧点击事件
+    arrowl.addEventListener('click',function(){
+      if(flag){
+        flag=false;
+        if(num==0){
+          num=ul.children.length-1;  // 当轮播图为第一张图时，num设为最后一张图的index，之后再减一
+          ul.style.left=-num*lunbo.offsetWidth+'px';  // 先切换到最后一张图，之后再调用动画函数到实际倒数第二图
+        }
+        num--;
+        animate(ul,-num*lunbo.offsetWidth,function(){
+          flag=true;
+        });
+        circle--;
+        if(circle==-1)  // 当小圆圈在第一个位置时，点击左移，circle-1，此时circle为-1
+          circle=ol.children.length-1;
+        setCurrent();
+      }
+    });
+    var timer=setInterval(function(){
+      arrowr.click();
+    },2000);
+    function setCurrent(){
+      for(let i=0;i<ol.children.length;i++){
+        ol.children[i].className='';
+      }
+      ol.children[circle].className='current';
+    }
+  })
+</script>
+
+</html>
