@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+
+        .title-active {
+            background-color: #fc8e0c;
+            padding: 14px 32px;
+            box-sizing: border-box;
+        }
+        .video-item {
+            margin: 10px auto;
+        }
+        .video-warp {
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+
+<ul>
+    <li><a class="active" href="./index.html">返回</a></li>
+    <li><a class="title-active" href="./index.html" id="title"></a></li>
+</ul>
+<br>
+<div id="video-box" style="display: flex;align-items: center;flex-wrap: wrap;justify-content: flex-start">
+
+    
+</div>
+
+</body>
+<script type="text/javascript">
+    function GetRequest(value) {
+        var url = decodeURI(location.search); //?id="123456"&Name="bicycle";
+        var object = {};
+        if (url.indexOf("?") !== -1)//url中存在问号，也就说有参数。
+        {
+            var str = url.substr(1); //得到?后面的字符串
+            var strs = str.split("&"); //将得到的参数分隔成数组[id="123456",Name="bicycle"];
+            for (var i = 0; i < strs.length; i++) {
+                object[strs[i].split("=")[0]] = strs[i].split("=")[1]
+            }
+        }
+        return object[value];
+    }
+
+    var title = decodeURI(GetRequest('title'));
+    console.log(title)
+    var videos = GetRequest('video').split(',');
+    var aTitle = document.getElementById("title")
+    var videoBox = document.getElementById('video-box');
+    videos.forEach(item => {
+        var it = document.createElement('video')
+        var videoWarp = document.createElement('div')
+        it.src = item
+        it.className='video-item'
+        it.controls = 'controls'
+        videoWarp.className='video-warp'
+        videoWarp.appendChild(it)
+        videoBox.appendChild(videoWarp)
+    })
+    // videoBox.load()
+    aTitle.innerHTML = title
+</script>
+</html>
